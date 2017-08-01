@@ -44,7 +44,7 @@ class SelectLineTool:
         if layer == None or layer.type() != QgsMapLayer.VectorLayer:
             QMessageBox.warning( iface.mainWindow(), "Closest Feature Finder", "No vector layers selected" )
             return [pointstoDraw, layerindex, previousLayer]
-        if not layer.isSpatial():
+        if not layer.hasGeometryType():
             QMessageBox.warning( iface.mainWindow(), "Closest Feature Finder", "The selected layer has either no or unknown geometry" )
             return [pointstoDraw, layerindex, previousLayer]
         # get the point coordinates in the layer's CRS
